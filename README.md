@@ -12,8 +12,6 @@ This implementation is a one player game. The word is provided by the app and pl
 
 For more information on game, check wikipedia page [here](https://en.wikipedia.org/wiki/Hangman_%28game%29)
 
-For actual 'Hangman' game app (consuming these APIs), checkout [hangman_game_frontend](https://github.com/ankjai/hangman_game_frontend) project.
-
 
 ### Scoring
 
@@ -37,7 +35,7 @@ Player is ranked using TrueSkill's 'A Bayesian Skill Rating System', it is diffi
 
 ### How to access APIs
 
-Read full API usage [here](docs/api_usage.md)  
+Read full API usage [here](api_usage.md)  
 
 ---
 
