@@ -52,7 +52,7 @@ def get_game_score(user_name, game):
     # filter ancestor scores
     score = score_filtered_by_ancestor.filter(score_filter).get()
 
-    return score
+    return score.order(Score.game_score)
 
 
 def get_user_score(user_name):
@@ -60,7 +60,7 @@ def get_user_score(user_name):
     return Score.query(ancestor=ndb.Key(User, user_name))
 
 
-def get_user_score_orderby_game_score(user_name):
+def get_high_scores(user_name):
     query = get_user_score(user_name)
 
     # order by game_score

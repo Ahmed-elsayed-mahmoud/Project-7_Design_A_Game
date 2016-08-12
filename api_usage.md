@@ -247,8 +247,8 @@ Response:
 ```  
 
 **_Get User Games_**  
-`GAME STATUS VALUES: 'IN_SESSION', 'WON', 'LOST' and 'ABORTED'`  
-`GET /game/v1/get_user_games?user_name=<data>&game_status=<data>`  
+`GAME STATUS VALUES: 'IN_SESSION'`  
+`GET /game/v1/get_user_games?user_name=<data>&game_status=1`  
 
 Response:  
 ```

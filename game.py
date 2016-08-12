@@ -102,7 +102,7 @@ class GameApi(remote.Service):
     def endpoint_guess_char(self, request):
         """Guess char of the word"""
         # only single char supported
-        if len(request.char) != 1:
+        if len(request.char) > 1:
             raise endpoints.ForbiddenException('ERR_BAD_CHAR_LENGTH')
 
         # only alphabet supported
@@ -147,14 +147,7 @@ class GameApi(remote.Service):
             # create filter for active games
             if request.game_status == GameStatus.IN_SESSION:
                 active_filter = ndb.query.FilterNode('game_status', '=', GameStatus.IN_SESSION.number)
-            elif request.game_status == GameStatus.WON:
-                active_filter = ndb.query.FilterNode('game_status', '=', GameStatus.WON.number)
-            elif request.game_status == GameStatus.LOST:
-                active_filter = ndb.query.FilterNode('game_status', '=', GameStatus.LOST.number)
-            elif request.game_status == GameStatus.ABORTED:
-                active_filter = ndb.query.FilterNode('game_status', '=', GameStatus.ABORTED.number)
 
-            # fetch games of this user
             active_games = all_games.filter(active_filter).fetch()
         else:
             # fetch games of this user

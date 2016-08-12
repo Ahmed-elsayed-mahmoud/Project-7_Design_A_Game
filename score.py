@@ -18,7 +18,7 @@ from utils import (
     get_game_score,
     get_all_users,
     get_user,
-    get_user_score_orderby_game_score
+    get_high_scores
 )
 
 GET_GAME_REQUEST = endpoints.ResourceContainer(
@@ -61,7 +61,7 @@ class ScoreApi(remote.Service):
                       http_method='GET')
     def endpoint_get_user_scores(self, request):
         """Get scores of a user ordered by game score"""
-        scores = get_user_score_orderby_game_score(request.user_name)
+        scores = get_high_scores(request.user_name)
 
         return GetScoreForms(
             items=[self._copy_score_to_form(score) for score in scores]
